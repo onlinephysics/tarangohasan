@@ -70,6 +70,17 @@ export function About() {
                 <span className="mono" style={{ fontSize:11, border:'1px solid var(--border)', padding:'6px 10px', borderRadius:999, background:'rgba(255,255,255,0.04)' }}>@tarangohasan — X · Reddit · Discord · GitHub</span>
               </div>
             </div>
+
+            <div style={{ border:'1px solid var(--border)', borderRadius:20, padding:16, background:'rgba(255,255,255,0.015)' }}>
+              <div className="mono" style={{ fontSize:10, letterSpacing:'0.08em', textTransform:'uppercase', color:'var(--muted)' }}>Open Source</div>
+              <div style={{ fontSize:13, fontWeight:700, marginTop:6 }}>MIT Licensed</div>
+              <div className="mono" style={{ fontSize:11, color:'var(--muted)', marginTop:6, lineHeight:1.6 }}>
+                This portfolio is open source. Fork it, learn from it, reuse with attribution.<br/>
+                <a href="https://github.com/onlinephysics/tarangohasan" target="_blank" rel="noreferrer" style={{ color:'var(--accent)', textDecoration:'underline', textUnderlineOffset:2 }}>github.com/onlinephysics/tarangohasan</a>
+                <span style={{ margin:'0 6px', opacity:0.4 }}>·</span>
+                <a href="https://github.com/onlinephysics" target="_blank" rel="noreferrer" style={{ color:'var(--accent)', textDecoration:'underline', textUnderlineOffset:2 }}>github.com/onlinephysics</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>

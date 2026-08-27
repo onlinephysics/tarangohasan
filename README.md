@@ -21,4 +21,11 @@ npm run preview
 ## Credits
 Many educational projects originate from **Abu Hasan**, Assistant Professor of Physics at Rangpur Government College, and participating teachers. Tarango is the developer / technical implementer.
 
+## Links
+- **This portfolio:** [github.com/onlinephysics/tarangohasan](https://github.com/onlinephysics/tarangohasan)
+- **Self Study organization:** [github.com/onlinephysics](https://github.com/onlinephysics)
+
+## License
+MIT Licensed — see [LICENSE](./LICENSE). Free to fork, learn from and reuse with attribution.
+
 © 2026 Tarango Hasan (Hiranya Nawar Tirtho)

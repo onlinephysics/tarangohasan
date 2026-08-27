@@ -40,8 +40,19 @@ export function Footer() {
           </div>
         </div>
         <div style={{ marginTop:28, paddingTop:16, borderTop:'1px solid var(--border)', display:'flex', flexWrap:'wrap', gap:12, justifyContent:'space-between', alignItems:'center' }}>
-          <span className="mono" style={{ fontSize:11, color:'var(--muted-2)' }}>Portfolio v1.0 · August 2026 · Dark technical archive · Built with React + Vite + TypeScript</span>
+          <span className="mono" style={{ fontSize:11, color:'var(--muted-2)', display:'flex', alignItems:'center', gap:8, flexWrap:'wrap' }}>
+            <span>Portfolio v1.0 · August 2026 · MIT Licensed</span>
+            <span style={{ opacity:0.4 }}>·</span>
+            <a href="https://github.com/onlinephysics/tarangohasan" target="_blank" rel="noreferrer" style={{ color:'var(--muted)', textDecoration:'underline', textUnderlineOffset:2, textDecorationColor:'rgba(255,255,255,0.18)' }}>github.com/onlinephysics/tarangohasan</a>
+            <span style={{ opacity:0.4 }}>·</span>
+            <a href="https://github.com/onlinephysics" target="_blank" rel="noreferrer" style={{ color:'var(--muted)', textDecoration:'underline', textUnderlineOffset:2, textDecorationColor:'rgba(255,255,255,0.18)' }}>github.com/onlinephysics</a>
+          </span>
           <span className="mono brand-name" style={{ fontSize:11, color:'var(--muted-2)' }}><span>© 2026 Tarango</span><span className="brand-space">&nbsp;</span><span>Hasan</span></span>
+        </div>
+        <div className="mono" style={{ marginTop:10, fontSize:10, color:'var(--muted-2)', opacity:0.7, display:'flex', gap:6, flexWrap:'wrap' }}>
+          <span>Dark technical archive · Built with React + Vite + TypeScript</span>
+          <span>·</span>
+          <a href="https://github.com/onlinephysics/tarangohasan/blob/main/LICENSE" target="_blank" rel="noreferrer" style={{ color:'var(--muted-2)', textDecoration:'underline', textUnderlineOffset:2 }}>MIT License</a>
         </div>
       </div>
       <style>{`@media (max-width:760px){ footer .container > div:first-child{ grid-template-columns:1fr !important; } }`}</style>
