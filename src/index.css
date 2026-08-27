@@ -1,0 +1,303 @@
+:root {
+  --bg: #0a0a0c;
+  --bg-2: #0f0f12;
+  --bg-3: #141418;
+  --bg-card: #111113;
+  --border: rgba(255,255,255,0.08);
+  --border-strong: rgba(255,255,255,0.14);
+  --text: #f4f4f6;
+  --muted: #8e8e93;
+  --muted-2: #6e6e73;
+  --accent: #10b981;
+  --accent-2: #059669;
+  --accent-soft: rgba(16,185,129,0.12);
+  --accent-border: rgba(16,185,129,0.25);
+  --radius: 16px;
+  --radius-sm: 10px;
+  --radius-xs: 8px;
+  --max: 1120px;
+  --nav-h: 56px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+@media (pointer: coarse), (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+@media (pointer: fine) {
+  html { scroll-behavior: auto; } /* JS handles smooth on PC */
+}
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+button { font-family: inherit; }
+
+.mono { font-family: 'JetBrains Mono', monospace; }
+
+/* layout */
+.container {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+@media (max-width: 640px) { .container { padding: 0 16px; } }
+
+/* scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 999px; }
+::-webkit-scrollbar-track { background: transparent; }
+
+/* selection — minimalist, emerald-tinted */
+::selection { background: rgba(16,185,129,0.18); color: #f4f4f6; }
+::-moz-selection { background: rgba(16,185,129,0.18); color: #f4f4f6; }
+/* keep code/mono selections slightly stronger for legibility */
+.mono::selection, code::selection, pre::selection { background: rgba(16,185,129,0.24); }
+
+/* custom cursor — hide native on fine pointers only, but restore when last input was touch (hybrid) */
+@media (pointer: fine) {
+  html:not(.using-touch), html:not(.using-touch) body, html:not(.using-touch) a, html:not(.using-touch) button, html:not(.using-touch) [role="button"] { cursor: none !important; }
+  html:not(.using-touch) input, html:not(.using-touch) textarea, html:not(.using-touch) [contenteditable="true"] { cursor: none !important; }
+  html.is-selecting:not(.using-touch), html.is-selecting:not(.using-touch) * { cursor: none !important; }
+  html.is-dragging, html.is-dragging * { cursor: grabbing !important; }
+  html.using-touch, html.using-touch * { cursor: auto !important; }
+}
+@media (pointer: coarse) {
+  /* touch-only keeps native */
+  html.using-touch, html.using-touch * { cursor: auto !important; }
+}
+/* hide custom cursor for users who prefer reduced motion? we keep it but disable lag — see component */
+
+/* focus */
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+
+/* divider */
+.divider { height: 1px; background: var(--border); }
+
+/* subtle grid bg */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* card */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+/* badge mono small */
+.label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* emerald dot */
+.dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); display: inline-block; }
+
+/* reveal animation */
+.reveal { animation: reveal 0.5s ease-out both; }
+@keyframes reveal { from { opacity:0; transform: translateY(10px);} to { opacity:1; transform: translateY(0);} }
+
+/* hero word hover — tilt + scale */
+.hero-word {
+  display: inline-block;
+  transition: transform 260ms cubic-bezier(0.34,1.56,0.64,1), color 200ms ease, letter-spacing 260ms ease, filter 260ms ease;
+  will-change: transform;
+  cursor: default;
+}
+.hero-word:hover {
+  transform: rotate(-1.6deg) scale(1.055);
+  letter-spacing: -0.035em;
+  filter: brightness(1.08);
+}
+.hero-word--muted:hover {
+  transform: rotate(1.2deg) scale(1.045);
+  color: var(--text) !important;
+}
+
+/* preview hover — 4:3 -> 16:9 + scale + break out, text column stays fixed */
+.preview-outer {
+  overflow: visible !important;
+  position: relative;
+  align-self: start;
+  display: block;
+}
+.preview-wrap {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  transform-origin: center center;
+  transition: transform 380ms cubic-bezier(0.34,1.2,0.64,1), box-shadow 300ms ease;
+  will-change: transform;
+  overflow: hidden;
+}
+.preview-wrap:hover {
+  transform: scale(1.12);
+  z-index: 10;
+  overflow: hidden;
+  box-shadow: 0 22px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.08);
+}
+.preview-img {
+  aspect-ratio: 4 / 3 !important;
+  transition: aspect-ratio 380ms ease, filter 250ms ease;
+  display: block;
+  width: 100%;
+}
+.preview-wrap:hover .preview-img {
+  aspect-ratio: 16 / 9 !important;
+  filter: brightness(1.07) saturate(1.08);
+}
+@media (min-width: 821px) {
+  .preview-wrap:hover {
+    /* break out past its cell without pushing left text */
+    width: calc(100% + 18px);
+    margin-left: -9px;
+    margin-right: -9px;
+  }
+}
+@media (pointer: coarse) {
+  .preview-img { aspect-ratio: 16/10 !important; }
+  .preview-wrap:hover .preview-img { aspect-ratio: 16/10 !important; }
+  .preview-wrap:hover { transform: none; box-shadow: none; overflow: hidden !important; }
+  .hero-word:hover { transform: none; letter-spacing: inherit; filter: none; }
+  .btn-hero:hover { transform: none !important; letter-spacing: inherit !important; filter: none !important; }
+}
+
+/* buttons — same hero tilt/scale language */
+.btn-hero {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 260ms cubic-bezier(0.34,1.56,0.64,1), letter-spacing 260ms ease, filter 200ms ease, background 200ms ease, border-color 200ms ease, color 200ms ease;
+  will-change: transform;
+}
+.btn-hero:hover {
+  transform: rotate(-1.1deg) scale(1.045);
+  letter-spacing: -0.01em;
+  filter: brightness(1.06);
+}
+.btn-hero--dark:hover {
+  transform: rotate(1.0deg) scale(1.04);
+  border-color: rgba(255,255,255,0.22) !important;
+}
+
+/* brand name Tarango Hasan -> TarangoHasan */
+.brand-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.brand-name .brand-space {
+  display: inline-block;
+  width: 0.32em;
+  transition: width 220ms cubic-bezier(0.4,0,0.2,1), opacity 180ms ease;
+  opacity: 1;
+}
+.brand-name:hover .brand-space {
+  width: 0;
+  opacity: 0;
+}
+.brand-name:hover {
+  letter-spacing: -0.03em;
+}
+
+/* What you see / What's underneath slide */
+.what-see-panel, .what-under-panel {
+  transition: transform 320ms cubic-bezier(0.34,1.2,0.64,1), box-shadow 250ms ease;
+  will-change: transform;
+}
+.what-see-panel:hover { transform: translateX(4px); }
+.what-under-panel:hover { transform: translateX(-4px); }
+@media (pointer: coarse) {
+  .what-see-panel:hover, .what-under-panel:hover { transform: none; }
+}
+
+/* Class 8 -> eight morph */
+.class-eight .class-eight__default {
+  display: inline-block;
+  transform: translateY(0);
+  opacity: 1;
+  filter: blur(0);
+  transition: transform 260ms cubic-bezier(0.34,1.2,0.64,1), opacity 200ms ease, filter 200ms ease;
+  will-change: transform;
+}
+.class-eight .class-eight__hover {
+  display: inline-block;
+  transform: translateY(7px);
+  opacity: 0;
+  filter: blur(2px);
+  transition: transform 260ms cubic-bezier(0.34,1.56,0.64,1), opacity 200ms ease, filter 200ms ease;
+  will-change: transform;
+}
+.class-eight:hover .class-eight__default {
+  transform: translateY(-7px);
+  opacity: 0;
+  filter: blur(2px);
+}
+.class-eight:hover .class-eight__hover {
+  transform: translateY(0);
+  opacity: 1;
+  filter: blur(0);
+}
+@media (pointer: coarse) {
+  .class-eight__hover { display: none !important; }
+}
+
+/* Connect + Navigate links — slide + accent */
+.connect-link, .nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  text-decoration: none;
+  position: relative;
+  transition: color 200ms ease, transform 260ms cubic-bezier(0.34,1.2,0.64,1), letter-spacing 200ms ease;
+  will-change: transform;
+}
+.connect-link::before, .nav-link::before {
+  content: '→';
+  font-size: 11px;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity 200ms ease, transform 260ms ease;
+  color: var(--accent);
+}
+.connect-link:hover, .nav-link:hover {
+  color: var(--text) !important;
+  transform: translateX(4px);
+  letter-spacing: -0.01em;
+}
+.connect-link:hover::before, .nav-link:hover::before {
+  opacity: 1;
+  transform: translateX(0);
+}
+.connect-link:hover::after, .nav-link:hover::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  opacity: 0.9;
+}
