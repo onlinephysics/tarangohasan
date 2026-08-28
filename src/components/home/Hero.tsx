@@ -74,11 +74,6 @@ export function Hero() {
                       <div className="mono" style={{ fontSize:11, color:'var(--muted)' }}>GMT+6</div>
                     </div>
                   </div>
-                  <div style={{ background:'rgba(255,255,255,0.04)', border:'1px solid var(--border)', borderRadius:12, padding:12 }}>
-                    <div className="mono" style={{ fontSize:10, letterSpacing:'0.08em', textTransform:'uppercase', color:'var(--muted)' }}>Father — Abu Hasan</div>
-                    <div style={{ fontSize:13, fontWeight:700, marginTop:4, lineHeight:1.35 }}>Abu Hasan<br/><span style={{ fontSize:12, fontWeight:600, color:'#e4e4e7' }}>Assistant Professor of Physics</span><br/><span style={{ color:'var(--muted)', fontWeight:500 }} className="mono">Rangpur Government College</span></div>
-                    <div style={{ marginTop:8, fontSize:12, color:'var(--muted)', lineHeight:1.5 }}>Provides domain knowledge, requirements, and academic content. I build the software.</div>
-                  </div>
                   <div style={{ display:'flex', gap:8, flexWrap:'wrap' }}>
                     <span className="mono" style={{ fontSize:11, border:'1px solid var(--border)', background:'rgba(255,255,255,0.04)', padding:'5px 8px', borderRadius:999 }}>React</span>
                     <span className="mono" style={{ fontSize:11, border:'1px solid var(--border)', background:'rgba(255,255,255,0.04)', padding:'5px 8px', borderRadius:999 }}>Firestore</span>
