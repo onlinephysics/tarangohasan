@@ -34,7 +34,7 @@ export function Footer() {
               <a href="https://github.com/tarangohasan" target="_blank" rel="noreferrer" className="connect-link mono" style={{ fontSize:13 }}>GitHub — @tarangohasan</a>
               <a href="https://x.com/tarangohasan" target="_blank" rel="noreferrer" className="connect-link mono" style={{ fontSize:13 }}>X — @tarangohasan</a>
               <a href="https://reddit.com/user/tarangohasan" target="_blank" rel="noreferrer" className="connect-link mono" style={{ fontSize:13 }}>Reddit — @tarangohasan</a>
-              <span className="connect-link mono" style={{ fontSize:13, cursor:'default' }}>Discord — @tarangohasan</span>
+              <span className="connect-link mono" style={{ fontSize:13 }}>Discord — @tarangohasan</span>
               <a href="mailto:tarangohasan@gmail.com" className="connect-link mono" style={{ fontSize:13 }}>tarangohasan@gmail.com</a>
             </div>
           </div>

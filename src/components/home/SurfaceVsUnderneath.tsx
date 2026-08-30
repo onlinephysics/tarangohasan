@@ -13,8 +13,8 @@ export function SurfaceVsUnderneath() {
               <h3 style={{ fontSize:20, fontWeight:800, letterSpacing:'-0.02em', marginTop:4 }}>The visible website is only the surface.</h3>
             </div>
             <div style={{ display:'flex', background:'rgba(255,255,255,0.06)', border:'1px solid var(--border)', borderRadius:999, padding:3, gap:3 }}>
-              <button onClick={()=>setMode('surface')} style={{ padding:'7px 14px', borderRadius:999, border:'none', fontWeight:700, fontSize:13, cursor:'pointer', background: mode==='surface' ? '#fff' : 'transparent', color: mode==='surface' ? '#0a0a0c' : 'var(--muted)' }}>What you see</button>
-              <button onClick={()=>setMode('underneath')} style={{ padding:'7px 14px', borderRadius:999, border:'none', fontWeight:700, fontSize:13, cursor:'pointer', background: mode==='underneath' ? '#10b981' : 'transparent', color: mode==='underneath' ? '#fff' : 'var(--muted)' }}>What’s underneath</button>
+              <button onClick={()=>setMode('surface')} style={{ padding:'7px 14px', borderRadius:999, border:'none', fontWeight:700, fontSize:13, background: mode==='surface' ? '#fff' : 'transparent', color: mode==='surface' ? '#0a0a0c' : 'var(--muted)' }}>What you see</button>
+              <button onClick={()=>setMode('underneath')} style={{ padding:'7px 14px', borderRadius:999, border:'none', fontWeight:700, fontSize:13, background: mode==='underneath' ? '#10b981' : 'transparent', color: mode==='underneath' ? '#fff' : 'var(--muted)' }}>What’s underneath</button>
             </div>
           </div>
 
