@@ -66,6 +66,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
           <div className="mono" style={{ fontSize:11, color:'var(--muted)', display:'flex', gap:6, flexWrap:'wrap' }}>
             <span style={{ border:'1px solid var(--border)', padding:'4px 8px', borderRadius:999, background:'rgba(255,255,255,0.04)' }}>{project.features[0] ?? 'Case study'}</span>
             {project.liveUrl && project.liveUrl !== '#' && <span style={{ color:'var(--accent)' }}>↗ live</span>}
+            {project.sourceUrl && <span style={{ color:'var(--accent)' }}>↗ repo</span>}
           </div>
         </div>
       </div>
