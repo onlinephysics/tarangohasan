@@ -31,6 +31,7 @@ export function ProjectDetail() {
               <Badge mono tone={isWarn?'warn': project.status==='Active'?'accent':'muted'}>{project.status}</Badge>
               <span className="mono" style={{ fontSize:11, color:'var(--muted)' }}>{project.year}</span>
               {project.liveUrl && project.liveUrl !== '#' && <a href={project.liveUrl} target="_blank" rel="noreferrer" style={{ fontSize:12, fontWeight:700, color:'var(--accent)' }}>Live ↗</a>}
+              {project.sourceUrl && <a href={project.sourceUrl} target="_blank" rel="noreferrer" style={{ fontSize:12, fontWeight:700, color:'var(--accent)' }}>GitHub ↗</a>}
             </div>
             <h1 style={{ fontSize:'clamp(24px, 4vw, 32px)', fontWeight:800, letterSpacing:'-0.03em', marginTop:10 }}>{project.title}</h1>
             <p style={{ color:'var(--muted)', fontSize:14, marginTop:6, maxWidth:720, lineHeight:1.6 }}>{project.longDescription}</p>
@@ -149,6 +150,7 @@ export function ProjectDetail() {
 
           <div style={{ padding:'0 16px 16px', display:'flex', gap:10, flexWrap:'wrap' }}>
             {project.liveUrl && project.liveUrl !== '#' && <a href={project.liveUrl} target="_blank" rel="noreferrer" className="btn-hero" style={{ background:'#fff', color:'#0a0a0c', padding:'10px 14px', borderRadius:999, fontWeight:700, fontSize:13 }}>Open live ↗</a>}
+            {project.sourceUrl && <a href={project.sourceUrl} target="_blank" rel="noreferrer" className="btn-hero btn-hero--dark" style={{ border:'1px solid var(--border)', padding:'10px 14px', borderRadius:999, fontWeight:600, fontSize:13, background:'rgba(255,255,255,0.04)' }}>GitHub repo ↗</a>}
             <Link to="/work" className="btn-hero btn-hero--dark" style={{ border:'1px solid var(--border)', padding:'10px 14px', borderRadius:999, fontWeight:600, fontSize:13, background:'rgba(255,255,255,0.04)' }}>← All work</Link>
           </div>
         </div>
